@@ -1,6 +1,6 @@
 package com.example.demo.controller;
 
-import com.example.demo.Services.VoitureService;
+import com.example.demo.services.VoitureService;
 import com.example.demo.entity.VoitureEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
