@@ -1,4 +1,4 @@
-package com.example.demo.services;
+package com.example.demo.services.voitureService;
 
 import com.example.demo.entity.VoitureEntity;
 

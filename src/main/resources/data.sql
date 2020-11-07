@@ -1,12 +1,11 @@
-# Create schemas
-
-# Create tables
 CREATE TABLE IF NOT EXISTS marque
 (
     id_marque INT NOT NULL,
     nom VARCHAR(250) NOT NULL,
     PRIMARY KEY(id_marque)
+
 );
+
 
 CREATE TABLE IF NOT EXISTS Voiture
 (
@@ -47,7 +46,6 @@ CREATE TABLE IF NOT EXISTS mar_co
 );
 
 
-# Create FKs
 ALTER TABLE Voiture
     ADD    FOREIGN KEY (nom)
     REFERENCES marque(nom)
@@ -72,7 +70,9 @@ ALTER TABLE mar_co
     ADD    FOREIGN KEY (id_concessionaire)
     REFERENCES concessionaire(id_concessionaire)
 ;
-    
 
-# Create Indexes
+
+INSERT INTO marque (id_marque, nom) VALUES (1,'peugeot');
+INSERT INTO marque (id_marque, nom) VALUES (2,'renault');
+INSERT INTO marque (id_marque, nom) VALUES (3,'ferrari');
 

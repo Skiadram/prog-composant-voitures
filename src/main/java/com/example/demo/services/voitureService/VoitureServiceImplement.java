@@ -1,7 +1,8 @@
-package com.example.demo.services;
+package com.example.demo.services.voitureService;
 
 import com.example.demo.entity.VoitureEntity;
 import com.example.demo.repository.VoitureRepository;
+import com.example.demo.services.voitureService.VoitureService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
