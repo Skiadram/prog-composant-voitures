@@ -63,7 +63,7 @@ ALTER TABLE Voiture
     
 ALTER TABLE mar_co
     ADD    FOREIGN KEY (id_marque)
-    REFERENCES marque(nom)
+    REFERENCES marque(id_marque)
 ;
     
 ALTER TABLE mar_co
@@ -112,10 +112,10 @@ INSERT INTO voiture (id_voiture, nom, id_client, modele) VALUES (8,'renault',8,'
 INSERT INTO voiture (id_voiture, nom, id_client, modele) VALUES (9,'mercedes',9,'sls amg');
 INSERT INTO voiture (id_voiture, nom, id_client, modele) VALUES (10,'ferrari',10,'portofino m');
 
-INSERT INTO mar_co (id_marque, id_concessionaire) VALUES (1,1);
-INSERT INTO mar_co (id_marque, id_concessionaire) VALUES (2,2);
-INSERT INTO mar_co (id_marque, id_concessionaire) VALUES (3,3);
-INSERT INTO mar_co (id_marque, id_concessionaire) VALUES (4,4);
-INSERT INTO mar_co (id_marque, id_concessionaire) VALUES (5,5);
+INSERT INTO mar_co (id_marque, id_concessionaire) VALUES (1,2);
+INSERT INTO mar_co (id_marque, id_concessionaire) VALUES (2,3);
+INSERT INTO mar_co (id_marque, id_concessionaire) VALUES (3,4);
+INSERT INTO mar_co (id_marque, id_concessionaire) VALUES (4,5);
+INSERT INTO mar_co (id_marque, id_concessionaire) VALUES (5,1);
 INSERT INTO mar_co (id_marque, id_concessionaire) VALUES (4,1);
 INSERT INTO mar_co (id_marque, id_concessionaire) VALUES (5,2);

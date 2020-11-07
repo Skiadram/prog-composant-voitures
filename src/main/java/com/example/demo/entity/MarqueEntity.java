@@ -6,7 +6,6 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-@Data
 public class MarqueEntity {
 
     @Id
@@ -14,4 +13,20 @@ public class MarqueEntity {
     private String nom;
 
     public MarqueEntity(){}
+
+    public int getId_marque() {
+        return id_marque;
+    }
+
+    public void setId_marque(int id_marque) {
+        this.id_marque = id_marque;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
 }
