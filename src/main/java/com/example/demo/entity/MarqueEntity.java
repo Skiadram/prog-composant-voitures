@@ -5,6 +5,7 @@ import lombok.Data;
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
+@Data
 
 @Entity
 @Table(name = "marque")
@@ -13,9 +14,13 @@ public class MarqueEntity {
     @Id
     private int id_marque;
     private String nom;
+
     @OneToMany(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_marque", referencedColumnName = "id_marque", updatable = false, insertable = false)
     private Set<VoitureEntity> listVoiture = new HashSet<VoitureEntity>();
+
+    @ManyToMany(mappedBy = "marques")
+    private Set<ConcessionaireEntity> concessionnaires = new HashSet<ConcessionaireEntity>();
 
     public MarqueEntity(){}
 
@@ -41,5 +46,13 @@ public class MarqueEntity {
 
     public void setListVoiture(Set<VoitureEntity> listVoiture) {
         this.listVoiture = listVoiture;
+    }
+
+    public Set<ConcessionaireEntity> getConcessionnaires() {
+        return concessionnaires;
+    }
+
+    public void setConcessionnaires(Set<ConcessionaireEntity> concessionnaires) {
+        this.concessionnaires = concessionnaires;
     }
 }

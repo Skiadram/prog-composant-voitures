@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS client
 
 CREATE TABLE IF NOT EXISTS mar_co
 (
-    id_marque VARCHAR(250) NOT NULL,
+    id_marque INT NOT NULL,
     id_concessionaire INT NOT NULL,
     PRIMARY KEY(id_marque, id_concessionaire)
 );
