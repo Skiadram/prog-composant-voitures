@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS marque
 );
 
 
-CREATE TABLE IF NOT EXISTS Voiture
+CREATE TABLE IF NOT EXISTS voiture
 (
     id_voiture INT NOT NULL,
     id_marque INT NOT NULL,
@@ -46,7 +46,7 @@ CREATE TABLE IF NOT EXISTS mar_co
 );
 
 
-ALTER TABLE Voiture
+ALTER TABLE voiture
     ADD    FOREIGN KEY (id_marque)
     REFERENCES marque(id_marque)
 ;
@@ -56,7 +56,7 @@ ALTER TABLE adresse
     REFERENCES concessionaire(id_concessionaire)
 ;
     
-ALTER TABLE Voiture
+ALTER TABLE voiture
     ADD    FOREIGN KEY (id_client)
     REFERENCES client(id_client)
 ;

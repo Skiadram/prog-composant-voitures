@@ -1,30 +1,28 @@
 package com.example.demo.entity;
 
-import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
+@NoArgsConstructor
 @Entity
-@Table(name = "marque")
-public class MarqueEntity {
-
+@Table(name = "client")
+public class ClientEntity{
     @Id
-    private int id_marque;
+    private int id_client;
     private String nom;
     @OneToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_marque", referencedColumnName = "id_marque", updatable = false, insertable = false)
+    @JoinColumn(name = "id_client", referencedColumnName = "id_client", updatable = false, insertable = false)
     private Set<VoitureEntity> listVoiture = new HashSet<VoitureEntity>();
 
-    public MarqueEntity(){}
-
-    public int getId_marque() {
-        return id_marque;
+    public int getId_client() {
+        return id_client;
     }
 
-    public void setId_marque(int id_marque) {
-        this.id_marque = id_marque;
+    public void setId_client(int id_client) {
+        this.id_client = id_client;
     }
 
     public String getNom() {
@@ -43,3 +41,4 @@ public class MarqueEntity {
         this.listVoiture = listVoiture;
     }
 }
+

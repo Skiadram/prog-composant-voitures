@@ -1,11 +1,11 @@
 package com.example.demo.controller;
 
-import com.example.demo.entity.AdresseEntity;
-import com.example.demo.entity.ConcessionaireEntity;
-import com.example.demo.entity.MarqueEntity;
+import com.example.demo.entity.*;
 import com.example.demo.services.adresseService.AdresseService;
+import com.example.demo.services.clientService.ClientService;
 import com.example.demo.services.concessionaireService.ConcessionaireService;
 import com.example.demo.services.marqueService.MarqueService;
+import com.example.demo.services.voitureService.VoitureService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,6 +20,10 @@ public class MyController {
     AdresseService adresseService;
     @Autowired
     ConcessionaireService concessionaireService;
+    @Autowired
+    ClientService clientService;
+    @Autowired
+    VoitureService voitureService;
 
 
     @GetMapping("/marque")
@@ -33,6 +37,11 @@ public class MyController {
     @GetMapping("/concessionaire")
     public Iterable<ConcessionaireEntity>getAllConcessionaire(){ return this.concessionaireService.getAllConcessionaire(); }
 
+    @GetMapping("/client")
+    public Iterable<ClientEntity>getAllCLient(){ return  this.clientService.getAllClient(); }
+
+    @GetMapping("/voiture")
+    public Iterable<VoitureEntity>getAllVoiture(){ return this.voitureService.getAllVoiture(); }
 
    /* @GetMapping("/voiture/")
     public Iterable<VoitureEntity> getAllVoiture(){
