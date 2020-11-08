@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS marque
 CREATE TABLE IF NOT EXISTS Voiture
 (
     id_voiture INT NOT NULL,
-    nom VARCHAR(250) NOT NULL,
+    id_marque INT NOT NULL,
     id_client INT NOT NULL,
     modele VARCHAR(250) NOT NULL,
     PRIMARY KEY(id_voiture)
@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS adresse
 (
     id_adresse INT NOT NULL,
     libelle VARCHAR(250) NOT NULL,
-    co_id INT NOT NULL,
+    id_concessionaire INT NOT NULL,
     PRIMARY KEY(id_adresse)
 );
 
@@ -47,12 +47,12 @@ CREATE TABLE IF NOT EXISTS mar_co
 
 
 ALTER TABLE Voiture
-    ADD    FOREIGN KEY (nom)
-    REFERENCES marque(nom)
+    ADD    FOREIGN KEY (id_marque)
+    REFERENCES marque(id_marque)
 ;
     
 ALTER TABLE adresse
-    ADD    FOREIGN KEY (co_id)
+    ADD    FOREIGN KEY (id_concessionaire)
     REFERENCES concessionaire(id_concessionaire)
 ;
     
@@ -84,11 +84,13 @@ INSERT INTO concessionaire (id_concessionaire, nom) VALUES (3,'topauto');
 INSERT INTO concessionaire (id_concessionaire, nom) VALUES (4,'franceauto');
 INSERT INTO concessionaire (id_concessionaire, nom) VALUES (5,'topgarage');
 
-INSERT INTO adresse (id_adresse, libelle, co_id) VALUES (1,'rue de la paix',1);
-INSERT INTO adresse (id_adresse, libelle, co_id) VALUES (2,'boulevard de lille',2);
-INSERT INTO adresse (id_adresse, libelle, co_id) VALUES (3,'allee des deux lions',3);
-INSERT INTO adresse (id_adresse, libelle, co_id) VALUES (4,'rue de la toison d or',4);
-INSERT INTO adresse (id_adresse, libelle, co_id) VALUES (5,'rue voltaire',5);
+INSERT INTO adresse (id_adresse, libelle, id_concessionaire) VALUES (1,'rue de la paix',1);
+INSERT INTO adresse (id_adresse, libelle, id_concessionaire) VALUES (2,'boulevard de lille',2);
+INSERT INTO adresse (id_adresse, libelle, id_concessionaire) VALUES (3,'allee des deux lions',3);
+INSERT INTO adresse (id_adresse, libelle, id_concessionaire) VALUES (4,'rue de la toison d or',4);
+INSERT INTO adresse (id_adresse, libelle, id_concessionaire) VALUES (5,'rue voltaire',5);
+INSERT INTO adresse (id_adresse, libelle, id_concessionaire) VALUES (6,'boulevard de la liberté',4);
+INSERT INTO adresse (id_adresse, libelle, id_concessionaire) VALUES (7,'boulevard de l ouest ',5);
 
 INSERT INTO client (id_client, nom) VALUES (1,'billy');
 INSERT INTO client (id_client, nom) VALUES (2,'jean');
@@ -101,16 +103,16 @@ INSERT INTO client (id_client, nom) VALUES (8,'marcelo');
 INSERT INTO client (id_client, nom) VALUES (9,'franck');
 INSERT INTO client (id_client, nom) VALUES (10,'omar');
 
-INSERT INTO voiture (id_voiture, nom, id_client, modele) VALUES (1,'peugeot', 1,'307');
-INSERT INTO voiture (id_voiture, nom, id_client, modele) VALUES (2,'renault',2,'megane rs');
-INSERT INTO voiture (id_voiture, nom, id_client, modele) VALUES (3,'ferrari',3,'enzo');
-INSERT INTO voiture (id_voiture, nom, id_client, modele) VALUES (4,'bugatti',4,'chiron');
-INSERT INTO voiture (id_voiture, nom, id_client, modele) VALUES (5,'bugatti',5,'divo');
-INSERT INTO voiture (id_voiture, nom, id_client, modele) VALUES (6,'mercedes',6,'gla');
-INSERT INTO voiture (id_voiture, nom, id_client, modele) VALUES (7,'peugeot',7,'onyx');
-INSERT INTO voiture (id_voiture, nom, id_client, modele) VALUES (8,'renault',8,'laguna');
-INSERT INTO voiture (id_voiture, nom, id_client, modele) VALUES (9,'mercedes',9,'sls amg');
-INSERT INTO voiture (id_voiture, nom, id_client, modele) VALUES (10,'ferrari',10,'portofino m');
+INSERT INTO voiture (id_voiture, id_marque, id_client, modele) VALUES (1,1, 1,'307');
+INSERT INTO voiture (id_voiture, id_marque, id_client, modele) VALUES (2,2,2,'megane rs');
+INSERT INTO voiture (id_voiture, id_marque, id_client, modele) VALUES (3,3,3,'enzo');
+INSERT INTO voiture (id_voiture, id_marque, id_client, modele) VALUES (4,4,4,'chiron');
+INSERT INTO voiture (id_voiture, id_marque, id_client, modele) VALUES (5,4,5,'divo');
+INSERT INTO voiture (id_voiture, id_marque, id_client, modele) VALUES (6,5,6,'gla');
+INSERT INTO voiture (id_voiture, id_marque, id_client, modele) VALUES (7,1,7,'onyx');
+INSERT INTO voiture (id_voiture, id_marque, id_client, modele) VALUES (8,2,8,'laguna');
+INSERT INTO voiture (id_voiture, id_marque, id_client, modele) VALUES (9,5,9,'sls amg');
+INSERT INTO voiture (id_voiture, id_marque, id_client, modele) VALUES (10,3,10,'portofino m');
 
 INSERT INTO mar_co (id_marque, id_concessionaire) VALUES (1,2);
 INSERT INTO mar_co (id_marque, id_concessionaire) VALUES (2,3);

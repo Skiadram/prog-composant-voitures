@@ -6,7 +6,6 @@ import com.example.demo.entity.MarqueEntity;
 import com.example.demo.services.adresseService.AdresseService;
 import com.example.demo.services.concessionaireService.ConcessionaireService;
 import com.example.demo.services.marqueService.MarqueService;
-import com.example.demo.services.voitureService.VoitureService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,9 +14,6 @@ import java.util.List;
 @RestController
 @RequestMapping(path = "/api")
 public class MyController {
-
-    @Autowired
-    VoitureService voitureService;
     @Autowired
     MarqueService marqueService;
     @Autowired

@@ -4,8 +4,10 @@ import lombok.Data;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "marque")
 public class MarqueEntity {
 
     @Id

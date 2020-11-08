@@ -3,21 +3,20 @@ package com.example.demo.entity;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
 @NoArgsConstructor
 @Entity
-public class ConcessionaireEntity {
+@Table(name = "concessionaire")
+public class ConcessionaireEntity{
     @Id
     private int id_concessionaire;
     private String nom;
-    @OneToMany
-    @JoinColumn(name = "co_id")
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_concessionaire", referencedColumnName = "id_concessionaire", updatable = false, insertable = false)
     private Set<AdresseEntity> listAdresses = new HashSet<AdresseEntity>();
 
     public int getId_concessionaire() {

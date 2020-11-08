@@ -1,15 +1,15 @@
 package com.example.demo.entity;
 
-import lombok.Data;
-
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
+@Table(name = "adresse")
 public class AdresseEntity {
     @Id
     private int id_adresse;
     private String libelle;
-    private int co_id;
+    private int id_concessionaire;
 
     public AdresseEntity(){}
 
@@ -29,11 +29,11 @@ public class AdresseEntity {
         this.libelle = libelle;
     }
 
-    public int getCo_id() {
-        return co_id;
+    public int getId_concessionaire() {
+        return id_concessionaire;
     }
 
-    public void setCo_id(int co_id) {
-        this.co_id = co_id;
+    public void setId_concessionaire(int id_concessionaire) {
+        this.id_concessionaire = id_concessionaire;
     }
 }
