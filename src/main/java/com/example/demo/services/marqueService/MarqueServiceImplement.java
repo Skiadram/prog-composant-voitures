@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 @Transactional(readOnly = true)
@@ -18,5 +19,10 @@ public class MarqueServiceImplement implements MarqueService{
     @Override
     public Iterable<MarqueEntity> getAllMarque() {
         return this.marqueRepository.findAllMarque();
+    }
+
+    @Override
+    public Optional<MarqueEntity> getMarqueById(int id) {
+        return this.marqueRepository.findById(id);
     }
 }

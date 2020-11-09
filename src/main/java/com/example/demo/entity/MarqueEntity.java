@@ -1,5 +1,6 @@
 package com.example.demo.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -19,6 +20,7 @@ public class MarqueEntity {
     @JoinColumn(name = "id_marque", referencedColumnName = "id_marque", updatable = false, insertable = false)
     private Set<VoitureEntity> listVoiture = new HashSet<VoitureEntity>();
 
+    @JsonIgnore
     @ManyToMany(mappedBy = "marques")
     private Set<ConcessionaireEntity> concessionnaires = new HashSet<ConcessionaireEntity>();
 

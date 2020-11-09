@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Optional;
+
 @Repository
 @Transactional(readOnly = true)
 public class AdresseServiceImplement implements AdresseService{
@@ -15,5 +17,10 @@ public class AdresseServiceImplement implements AdresseService{
     @Override
     public Iterable<AdresseEntity> getAllAdresse() {
         return this.adresseRepository.findAllAdresse();
+    }
+
+    @Override
+    public Optional<AdresseEntity> getAdresseById(int id) {
+        return this.adresseRepository.findById(id);
     }
 }

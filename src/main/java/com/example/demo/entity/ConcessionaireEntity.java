@@ -1,5 +1,6 @@
 package com.example.demo.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -24,6 +25,7 @@ public class ConcessionaireEntity{
     @JoinColumn(name = "id_concessionaire", referencedColumnName = "id_concessionaire", updatable = false, insertable = false)
     private Set<AdresseEntity> listAdresses = new HashSet<AdresseEntity>();
 
+    @JsonIgnore
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "mar_co",
             joinColumns = @JoinColumn(name = "id_concessionaire", referencedColumnName = "id_concessionaire"),

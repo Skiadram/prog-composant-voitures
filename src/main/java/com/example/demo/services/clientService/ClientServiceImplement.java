@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Optional;
+
 @Repository
 @Transactional(readOnly = true)
 public class ClientServiceImplement implements ClientService {
@@ -18,5 +20,10 @@ public class ClientServiceImplement implements ClientService {
     @Override
     public Iterable<ClientEntity> getAllClient() {
         return this.clientRepository.findAll();
+    }
+
+    @Override
+    public Optional<ClientEntity> getClientById(int id) {
+        return this.clientRepository.findById(id);
     }
 }
