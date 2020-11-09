@@ -5,6 +5,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 public interface VoitureRepository extends JpaRepository<VoitureEntity, Integer> {
-    @Query(value = "select * from Voiture", nativeQuery = true)
+    @Query(value = "select * from voiture", nativeQuery = true)
     Iterable<VoitureEntity> findAllVoiture();
 }
