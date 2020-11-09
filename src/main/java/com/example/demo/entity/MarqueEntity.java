@@ -17,7 +17,7 @@ public class MarqueEntity {
     private int id_marque;
     private String nom;
 
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JoinColumn(name = "id_marque", referencedColumnName = "id_marque", updatable = false, insertable = false)
     private Set<VoitureEntity> listVoiture = new HashSet<VoitureEntity>();

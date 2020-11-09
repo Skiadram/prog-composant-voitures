@@ -41,4 +41,17 @@ public class ConcessionaireController {
         response.put("deleted", Boolean.TRUE);
         return response;
     }
+
+    @PutMapping("/concessionaire/{id}")
+    public ConcessionaireEntity updateConcessionaireById(@PathVariable("id") int id, @RequestBody ConcessionaireEntity concessionaireEntity) throws RessourceNotFoundException {
+        ConcessionaireEntity concessionaire = concessionaireService.getConcessionaireById(id).get();
+        if(concessionaire.equals(null))
+            throw new RessourceNotFoundException("Not found any concessionaire to this Id ::" + id);
+
+        concessionaire.setListAdresses(concessionaireEntity.getListAdresses());
+        concessionaire.setListMarque(concessionaireEntity.getListMarque());
+        concessionaire.setNom(concessionaireEntity.getNom());
+        concessionaireService.addConcessionaire(concessionaire);
+        return concessionaire;
+    }
 }

@@ -44,4 +44,16 @@ public class ClientController {
         response.put("deleted", Boolean.TRUE);
         return response;
     }
+
+    @PutMapping("/client/{id}")
+    public ClientEntity updateClientById(@PathVariable("id") int id, @RequestBody ClientEntity clientEntity) throws RessourceNotFoundException {
+        ClientEntity client= clientService.getClientById(id).get();
+        if(client.equals(null))
+            throw new RessourceNotFoundException("Not found any client to this Id ::" + id);
+
+        client.setListVoiture(clientEntity.getListVoiture());
+        client.setNom(clientEntity.getNom());
+        clientService.addClient(client);
+        return client;
+    }
 }

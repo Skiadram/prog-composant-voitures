@@ -43,4 +43,17 @@ public class MarqueController {
         response.put("deleted", Boolean.TRUE);
         return response;
     }
+
+    @PutMapping("/marque/{id}")
+    public MarqueEntity updateMarqueById(@PathVariable("id") int id, @RequestBody MarqueEntity marqueEntity) throws RessourceNotFoundException {
+        MarqueEntity marque = marqueService.getMarqueById(id).get();
+        if(marque.equals(null))
+            throw new RessourceNotFoundException("Not found any marque to this Id ::" + id);
+
+        marque.setConcessionnaires(marqueEntity.getConcessionnaires());
+        marque.setListVoiture(marqueEntity.getListVoiture());
+        marque.setNom(marqueEntity.getNom());
+        marqueService.addMarque(marque);
+        return marque;
+    }
 }

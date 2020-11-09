@@ -41,4 +41,17 @@ public class VoitureController {
         response.put("deleted", Boolean.TRUE);
         return response;
     }
+
+    @PutMapping("/voiture/{id}")
+    public VoitureEntity updateVoitureById(@PathVariable("id") int id, @RequestBody VoitureEntity voitureEntity) throws RessourceNotFoundException {
+        VoitureEntity voiture = voitureService.getVoitureById(id).get();
+        if(voiture.equals(null))
+            throw new RessourceNotFoundException("Not found any voiture to this Id ::" + id);
+
+        voiture.setId_client(voitureEntity.getId_client());
+        voiture.setId_marque(voitureEntity.getId_marque());
+        voiture.setModele(voitureEntity.getModele());
+        voitureService.addVoiture(voiture);
+        return voiture;
+    }
 }

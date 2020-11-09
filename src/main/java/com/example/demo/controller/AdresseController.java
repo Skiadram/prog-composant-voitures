@@ -54,5 +54,15 @@ public class AdresseController {
         return response;
     }
 
+    @PutMapping("/adresse/{id}")
+    public AdresseEntity updateAdresseById(@PathVariable("id") int id, @RequestBody AdresseEntity adresseEntity) throws RessourceNotFoundException {
+        AdresseEntity adresse = adresseService.getAdresseById(id).get();
+        if(adresse.equals(null))
+            throw new RessourceNotFoundException("Not found any address to this Id ::" + id);
 
+        adresse.setId_concessionaire(adresseEntity.getId_concessionaire());
+        adresse.setLibelle(adresseEntity.getLibelle());
+        adresseService.addAdresse(adresse);
+        return adresse;
+    }
 }

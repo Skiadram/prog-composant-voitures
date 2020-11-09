@@ -17,7 +17,7 @@ public class ClientEntity{
     @Id
     private int id_client;
     private String nom;
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JoinColumn(name = "id_client", referencedColumnName = "id_client", updatable = false, insertable = false)
     private Set<VoitureEntity> listVoiture = new HashSet<VoitureEntity>();

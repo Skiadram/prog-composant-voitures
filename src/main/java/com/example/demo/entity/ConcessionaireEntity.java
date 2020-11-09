@@ -22,7 +22,7 @@ public class ConcessionaireEntity{
     private int id_concessionaire;
     private String nom;
 
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JoinColumn(name = "id_concessionaire", referencedColumnName = "id_concessionaire", updatable = false, insertable = false)
     private Set<AdresseEntity> listAdresses = new HashSet<AdresseEntity>();
