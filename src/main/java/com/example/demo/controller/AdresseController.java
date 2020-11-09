@@ -21,6 +21,10 @@ public class AdresseController {
     @Autowired
     AdresseService adresseService;
 
+    /*
+    Another method with @RequestParam (replace get All method) -> I didn't create this features for the other controllers
+    in order to keep them very simple
+     */
     @GetMapping("/adresse")
     public Iterable<AdresseEntity> getAllAdresseParam(@RequestParam(value = "id_adresse", required = false) List<String> id_adresse,
                                                    @RequestParam(value = "libelle", required = false)List<String> libelle,
