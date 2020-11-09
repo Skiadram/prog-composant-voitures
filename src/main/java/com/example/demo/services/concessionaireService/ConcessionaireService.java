@@ -9,4 +9,6 @@ public interface ConcessionaireService {
     public Iterable<ConcessionaireEntity>getAllConcessionaire();
 
     Optional<ConcessionaireEntity> getConcessionaireById(int co_id);
+
+    ConcessionaireEntity addConcessionaire(ConcessionaireEntity concessionaireEntity);
 }

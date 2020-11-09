@@ -1,5 +1,6 @@
 package com.example.demo.entity;
 
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
@@ -8,6 +9,7 @@ import java.util.Set;
 
 @NoArgsConstructor
 @Entity
+@Data
 @Table(name = "client")
 public class ClientEntity{
     @Id

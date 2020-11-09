@@ -25,4 +25,9 @@ public class MarqueServiceImplement implements MarqueService{
     public Optional<MarqueEntity> getMarqueById(int id) {
         return this.marqueRepository.findById(id);
     }
+
+    @Override
+    public MarqueEntity addMarque(MarqueEntity marqueEntity) {
+        return this.marqueRepository.save(marqueEntity);
+    }
 }

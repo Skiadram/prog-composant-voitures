@@ -26,4 +26,9 @@ public class ClientServiceImplement implements ClientService {
     public Optional<ClientEntity> getClientById(int id) {
         return this.clientRepository.findById(id);
     }
+
+    @Override
+    public ClientEntity addClient(ClientEntity clientEntity) {
+        return this.clientRepository.save(clientEntity);
+    }
 }

@@ -10,4 +10,8 @@ public interface AdresseService {
 
 
     Optional<AdresseEntity> getAdresseById(int id);
+
+    void deleteAdresseById(int id);
+
+    AdresseEntity addAdresse(AdresseEntity adresseEntity);
 }

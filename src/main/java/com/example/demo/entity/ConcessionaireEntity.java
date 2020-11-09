@@ -12,7 +12,6 @@ import java.util.Set;
 
 @Data
 @EqualsAndHashCode(exclude = "marques")
-
 @NoArgsConstructor
 @Entity
 @Table(name = "concessionaire")

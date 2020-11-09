@@ -14,13 +14,28 @@ public class AdresseServiceImplement implements AdresseService{
     @Autowired
     AdresseRepository adresseRepository;
 
+    @Transactional
     @Override
     public Iterable<AdresseEntity> getAllAdresse() {
         return this.adresseRepository.findAllAdresse();
     }
 
+    @Transactional
     @Override
     public Optional<AdresseEntity> getAdresseById(int id) {
         return this.adresseRepository.findById(id);
     }
+
+    @Transactional
+    @Override
+    public void deleteAdresseById(int id) {
+        this.adresseRepository.deleteById(id);
+    }
+
+    @Transactional
+    @Override
+    public AdresseEntity addAdresse(AdresseEntity adresseEntity) {
+        return this.adresseRepository.save(adresseEntity);
+    }
+
 }

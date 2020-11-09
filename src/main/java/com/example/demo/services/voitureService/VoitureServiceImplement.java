@@ -25,5 +25,11 @@ public class VoitureServiceImplement implements VoitureService {
     @Override
     public Optional<VoitureEntity> getVoitureById(int id) {
         return this.voitureRepository.findById(id);
+
+    }
+
+    @Override
+    public VoitureEntity addVoiture(VoitureEntity voitureEntity) {
+        return this.voitureRepository.save(voitureEntity);
     }
 }

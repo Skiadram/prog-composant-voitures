@@ -8,4 +8,6 @@ public interface VoitureService {
     public Iterable<VoitureEntity>getAllVoiture();
 
     Optional<VoitureEntity> getVoitureById(int id);
+
+    VoitureEntity addVoiture(VoitureEntity voitureEntity);
 }

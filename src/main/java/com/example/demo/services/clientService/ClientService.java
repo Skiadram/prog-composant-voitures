@@ -9,4 +9,6 @@ public interface ClientService {
     public Iterable<ClientEntity>getAllClient();
 
     Optional<ClientEntity> getClientById(int id);
+
+    ClientEntity addClient(ClientEntity clientEntity);
 }

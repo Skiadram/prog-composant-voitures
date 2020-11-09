@@ -23,4 +23,9 @@ public class ConcessionaireServiceImplement implements ConcessionaireService {
     public Optional<ConcessionaireEntity> getConcessionaireById(int co_id) {
         return this.concessionaireRepository.findById(co_id);
     }
+
+    @Override
+    public ConcessionaireEntity addConcessionaire(ConcessionaireEntity concessionaireEntity) {
+        return this.concessionaireRepository.save(concessionaireEntity);
+    }
 }
