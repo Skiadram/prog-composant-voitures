@@ -28,6 +28,11 @@ public class AdresseServiceImplement implements AdresseService{
         return this.adresseRepository.findById(id);
     }
 
+    @Transactional
+    @Override
+    public void deleteAdresseById(int id) {
+        this.adresseRepository.deleteById(id);
+    }
 
     @Transactional
     @Override

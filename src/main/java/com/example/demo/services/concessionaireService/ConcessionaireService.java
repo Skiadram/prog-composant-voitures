@@ -11,4 +11,6 @@ public interface ConcessionaireService {
     Optional<ConcessionaireEntity> getConcessionaireById(int co_id);
 
     ConcessionaireEntity addConcessionaire(ConcessionaireEntity concessionaireEntity);
+
+    void deleteConcessionaireById(int id);
 }

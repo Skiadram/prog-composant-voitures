@@ -49,26 +49,36 @@ CREATE TABLE IF NOT EXISTS mar_co
 ALTER TABLE voiture
     ADD    FOREIGN KEY (id_marque)
     REFERENCES marque(id_marque)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE
 ;
     
 ALTER TABLE adresse
     ADD    FOREIGN KEY (id_concessionaire)
     REFERENCES concessionaire(id_concessionaire)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE
 ;
     
 ALTER TABLE voiture
     ADD    FOREIGN KEY (id_client)
     REFERENCES client(id_client)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE
 ;
     
 ALTER TABLE mar_co
     ADD    FOREIGN KEY (id_marque)
     REFERENCES marque(id_marque)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE
 ;
     
 ALTER TABLE mar_co
     ADD    FOREIGN KEY (id_concessionaire)
     REFERENCES concessionaire(id_concessionaire)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE
 ;
 
 

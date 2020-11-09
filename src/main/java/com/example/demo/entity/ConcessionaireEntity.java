@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -21,11 +23,13 @@ public class ConcessionaireEntity{
     private String nom;
 
     @OneToMany(fetch = FetchType.LAZY)
+    @OnDelete(action = OnDeleteAction.CASCADE)
     @JoinColumn(name = "id_concessionaire", referencedColumnName = "id_concessionaire", updatable = false, insertable = false)
     private Set<AdresseEntity> listAdresses = new HashSet<AdresseEntity>();
 
     @JsonIgnore
     @ManyToMany(cascade = CascadeType.ALL)
+    @OnDelete(action = OnDeleteAction.CASCADE)
     @JoinTable(name = "mar_co",
             joinColumns = @JoinColumn(name = "id_concessionaire", referencedColumnName = "id_concessionaire"),
             inverseJoinColumns = @JoinColumn(name = "id_marque", referencedColumnName = "id_marque"))

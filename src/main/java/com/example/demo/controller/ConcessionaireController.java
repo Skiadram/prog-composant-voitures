@@ -1,10 +1,14 @@
 package com.example.demo.controller;
 
+import com.example.demo.entity.AdresseEntity;
 import com.example.demo.entity.ConcessionaireEntity;
+import com.example.demo.exception.RessourceNotFoundException;
 import com.example.demo.services.concessionaireService.ConcessionaireService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Optional;
 
 @RestController
@@ -25,5 +29,16 @@ public class ConcessionaireController {
     @PostMapping("/concessionaire")
     public ConcessionaireEntity addConcessionaire(@RequestBody ConcessionaireEntity concessionaireEntity){
         return this.concessionaireService.addConcessionaire(concessionaireEntity);
+    }
+
+    @DeleteMapping("/concessionaire/{id}")
+    public Map<String, Boolean> deleteConcessionaireById(@PathVariable("id") int id) throws RessourceNotFoundException {
+        if(this.concessionaireService.getConcessionaireById(id).get().equals(null))
+            throw new RessourceNotFoundException("Not found any concesionnaire to this Id ::" + id);
+        concessionaireService.deleteConcessionaireById(id);
+
+        Map<String, Boolean> response = new HashMap<>();
+        response.put("deleted", Boolean.TRUE);
+        return response;
     }
 }

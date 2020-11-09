@@ -30,4 +30,10 @@ public class MarqueServiceImplement implements MarqueService{
     public MarqueEntity addMarque(MarqueEntity marqueEntity) {
         return this.marqueRepository.save(marqueEntity);
     }
+
+    @Transactional
+    @Override
+    public void deleteMarqueById(int id) {
+        this.marqueRepository.deleteById(id);
+    }
 }

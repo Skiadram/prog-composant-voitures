@@ -12,6 +12,8 @@ public interface AdresseService {
 
     Optional<AdresseEntity> getAdresseById(int id);
 
+    void deleteAdresseById(int id);
+
     AdresseEntity addAdresse(AdresseEntity adresseEntity);
 
     Iterable<AdresseEntity> getAllAdresseParam(List<String> id_adresse, List<String> libelle, List<String> id_concessionaire);

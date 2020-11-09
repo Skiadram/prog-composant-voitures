@@ -31,4 +31,10 @@ public class ClientServiceImplement implements ClientService {
     public ClientEntity addClient(ClientEntity clientEntity) {
         return this.clientRepository.save(clientEntity);
     }
+
+    @Transactional
+    @Override
+    public void deleteClientById(int id) {
+        this.clientRepository.deleteById(id);
+    }
 }

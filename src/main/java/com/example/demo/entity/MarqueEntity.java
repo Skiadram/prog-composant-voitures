@@ -2,6 +2,8 @@ package com.example.demo.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -16,10 +18,12 @@ public class MarqueEntity {
     private String nom;
 
     @OneToMany(fetch = FetchType.LAZY)
+    @OnDelete(action = OnDeleteAction.CASCADE)
     @JoinColumn(name = "id_marque", referencedColumnName = "id_marque", updatable = false, insertable = false)
     private Set<VoitureEntity> listVoiture = new HashSet<VoitureEntity>();
 
     @JsonIgnore
+    @OnDelete(action = OnDeleteAction.CASCADE)
     @ManyToMany(mappedBy = "marques")
     private Set<ConcessionaireEntity> concessionnaires = new HashSet<ConcessionaireEntity>();
 

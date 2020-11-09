@@ -10,4 +10,6 @@ public interface VoitureService {
     Optional<VoitureEntity> getVoitureById(int id);
 
     VoitureEntity addVoiture(VoitureEntity voitureEntity);
+
+    void deleteVoitureById(int id);
 }

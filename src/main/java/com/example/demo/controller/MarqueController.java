@@ -1,10 +1,14 @@
 package com.example.demo.controller;
 
+import com.example.demo.entity.AdresseEntity;
 import com.example.demo.entity.MarqueEntity;
+import com.example.demo.exception.RessourceNotFoundException;
 import com.example.demo.services.marqueService.MarqueService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Optional;
 
 @RestController
@@ -27,5 +31,16 @@ public class MarqueController {
     @PostMapping("/marque")
     public MarqueEntity addMarque(@RequestBody MarqueEntity marqueEntity){
         return this.marqueService.addMarque(marqueEntity);
+    }
+
+    @DeleteMapping("/marque/{id}")
+    public Map<String, Boolean> deleteMarqueById(@PathVariable("id") int id) throws RessourceNotFoundException {
+        if(this.marqueService.getMarqueById(id).get().equals(null))
+            throw new RessourceNotFoundException("Not found any marque to this Id ::" + id);
+        marqueService.deleteMarqueById(id);
+
+        Map<String, Boolean> response = new HashMap<>();
+        response.put("deleted", Boolean.TRUE);
+        return response;
     }
 }

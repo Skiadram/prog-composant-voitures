@@ -2,6 +2,8 @@ package com.example.demo.entity;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -16,6 +18,7 @@ public class ClientEntity{
     private int id_client;
     private String nom;
     @OneToMany(fetch = FetchType.LAZY)
+    @OnDelete(action = OnDeleteAction.CASCADE)
     @JoinColumn(name = "id_client", referencedColumnName = "id_client", updatable = false, insertable = false)
     private Set<VoitureEntity> listVoiture = new HashSet<VoitureEntity>();
 

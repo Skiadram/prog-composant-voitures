@@ -28,4 +28,10 @@ public class ConcessionaireServiceImplement implements ConcessionaireService {
     public ConcessionaireEntity addConcessionaire(ConcessionaireEntity concessionaireEntity) {
         return this.concessionaireRepository.save(concessionaireEntity);
     }
+
+    @Transactional
+    @Override
+    public void deleteConcessionaireById(int id) {
+        this.concessionaireRepository.deleteById(id);
+    }
 }

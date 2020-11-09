@@ -12,4 +12,6 @@ public interface MarqueService {
     Optional<MarqueEntity> getMarqueById(int id);
 
     MarqueEntity addMarque(MarqueEntity marqueEntity);
+
+    void deleteMarqueById(int id);
 }

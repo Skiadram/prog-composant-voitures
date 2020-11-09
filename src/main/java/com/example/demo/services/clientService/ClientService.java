@@ -10,5 +10,7 @@ public interface ClientService {
 
     Optional<ClientEntity> getClientById(int id);
 
+    void deleteClientById(int id);
+
     ClientEntity addClient(ClientEntity clientEntity);
 }

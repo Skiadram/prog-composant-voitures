@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.entity.AdresseEntity;
+import com.example.demo.exception.RessourceNotFoundException;
 import com.example.demo.services.adresseService.AdresseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Slice;
@@ -41,4 +42,17 @@ public class AdresseController {
     public AdresseEntity addAdresseById(@RequestBody AdresseEntity adresseEntity) {
         return this.adresseService.addAdresse(adresseEntity);
     }
+
+    @DeleteMapping("/adresse/{id}")
+    public Map<String, Boolean> deleteAdresseById(@PathVariable("id") int id) throws RessourceNotFoundException {
+        if(this.adresseService.getAdresseById(id).get().equals(null))
+            throw new RessourceNotFoundException("Not found any address to this Id ::" + id);
+        adresseService.deleteAdresseById(id);
+
+        Map<String, Boolean> response = new HashMap<>();
+        response.put("deleted", Boolean.TRUE);
+        return response;
+    }
+
+
 }
